@@ -5,11 +5,11 @@ using MultiShop.Order.Domain.Entities;
 
 namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers;
 
-public class GetAddressByIdQuueryHandler
+public class GetAddressByIdQueryHandler
 {
     private readonly IRepository<Address> _repository;
 
-    public GetAddressByIdQuueryHandler(IRepository<Address> repository)
+    public GetAddressByIdQueryHandler(IRepository<Address> repository)
     {
         _repository = repository;
     }

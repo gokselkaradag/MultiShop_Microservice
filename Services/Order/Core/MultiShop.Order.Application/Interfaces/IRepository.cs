@@ -9,5 +9,5 @@ public interface IRepository<T> where T : class
     Task CreateAsync(T entity);
     Task UpdateAsync(T entity);
     Task DeleteAsync(T entity);
-    Task<T> GetByFilterAsync(Expression<Func<T, bool>> filter); // Filtereme işlemi giriş değeri T çıkış değeri booldur.
+    Task<T> GetByFilterAsync(Expression<Func<T, bool>> filter); // Filtreleme işlemleri giriş değeri T çıkış değeri booldur.
 }
