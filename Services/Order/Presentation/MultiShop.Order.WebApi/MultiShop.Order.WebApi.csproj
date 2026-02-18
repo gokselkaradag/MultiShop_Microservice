@@ -7,7 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MediatR" Version="14.0.0" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0"/>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Core\MultiShop.Order.Application\MultiShop.Order.Application.csproj" />
+      <ProjectReference Include="..\..\Core\MultiShop.Order.Domain\MultiShop.Order.Domain.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\MultiShop.Order.Persistance\MultiShop.Order.Persistance.csproj" />
     </ItemGroup>
 
 </Project>
