@@ -19,7 +19,7 @@ public class GetOrderDetailByIdQueryHandler
         var values = await _repository.GetByIdAsync(query.Id);
         return new GetOrderDetailByIdQueryResult
         {
-            OderDetailId =  values.OderDetailId,
+            OderDetailId =  values.OrderDetailId,
             ProductAmount =  values.ProductAmount,
             ProductName = values.ProductName,
             ProductId = values.ProductId,
