@@ -2,11 +2,11 @@
 
 namespace MultiShop.Order.Application.Features.Mediator.Commands.OrderingCommands;
 
-public class DeleteOrderingRequest:IRequest
+public class DeleteOrderingCommand:IRequest
 {
     public int Id { get; set; }
 
-    public DeleteOrderingRequest(int id)
+    public DeleteOrderingCommand(int id)
     {
         Id = id;
     }
