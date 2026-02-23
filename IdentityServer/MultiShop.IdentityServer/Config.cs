@@ -1,5 +1,6 @@
 ﻿using IdentityServer4.Models;
 using System.Collections.Generic;
+using IdentityServer4;
 
 namespace MultiShop.IdentityServer
 {
@@ -25,6 +26,47 @@ namespace MultiShop.IdentityServer
             new ApiScope("CatalogReadPermission", "Reading authority for catalog operations "),
             new ApiScope("DiscountFullPermisssion", "Reading authority for discount operations "),
             new ApiScope("OrderFullPermisssion", "Reading authority for order operations ")
+        };
+
+        public static IEnumerable<Client> Clients => new Client[]
+        {
+            //Visitor
+            new Client
+            {
+                ClientId = "MultiShopVisitorId",
+                ClientName = "MultiShop Visitor User",
+                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                ClientSecrets = { new Secret("multishopsecret".Sha256()) },
+                AllowedScopes = { "CatalogReadPermission" }
+            },
+            
+            //Manager
+            new Client
+            {
+                ClientId = "MultiShopManagerId",
+                ClientName = "MultiShop Manager User",
+                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                ClientSecrets = { new Secret("multishopsecret".Sha256()) },
+                AllowedScopes = { "CatalogReadPermission", "CatalogFullPermisssion" }
+            },
+            
+            //Admin
+            new Client
+            {
+                ClientId = "MultiShopAdminId",
+                ClientName = "MultiShop Admin User",
+                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                ClientSecrets = { new Secret("multishopsecret".Sha256()) },
+                AllowedScopes =
+                {
+                    "CatalogReadPermission", "CatalogFullPermisssion","DiscountFullPermisssion","OrderFullPermisssion",
+                    IdentityServerConstants.LocalApi.ScopeName,
+                    IdentityServerConstants.StandardScopes.OpenId,  
+                    IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.Email,
+                },
+                AccessTokenLifetime = 600
+            }
         };
     }
 }
