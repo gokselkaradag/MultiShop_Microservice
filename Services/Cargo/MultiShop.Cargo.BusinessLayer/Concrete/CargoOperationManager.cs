@@ -4,37 +4,37 @@ using MultiShop.Cargo.EntityLayer.Concrete;
 
 namespace MultiShop.Cargo.BusinessLayer.Concrete;
 
-public class CargoOperationManager : ICargoDetailService
+public class CargoOperationManager : ICargoOperationService
 {
-    private readonly ICargoDetailDal _cargoDetailDal;
+    private readonly ICargoOperationDal _cargoOperationDal;
 
-    public CargoOperationManager(ICargoDetailDal cargoDetailDal)
+    public CargoOperationManager(ICargoOperationDal cargoOperationDal)
     {
-        _cargoDetailDal = cargoDetailDal;
+        _cargoOperationDal = cargoOperationDal;
     }
 
-    public void TInsert(CargoDetail entity)
+    public void TInsert(CargoOperation entity)
     {
-        _cargoDetailDal.Insert(entity);
+        _cargoOperationDal.Insert(entity);
     }
 
-    public void TUpdate(CargoDetail entity)
+    public void TUpdate(CargoOperation entity)
     {
-        _cargoDetailDal.Update(entity);
+        _cargoOperationDal.Update(entity);
     }
 
     public void TDelete(int id)
     {
-        _cargoDetailDal.Delete(id);
+        _cargoOperationDal.Delete(id);
     }
 
-    public CargoDetail TGetById(int id)
+    public CargoOperation TGetById(int id)
     {
-        return _cargoDetailDal.GetById(id);
+        return _cargoOperationDal.GetById(id);
     }
 
-    public List<CargoDetail> TGetAll()
+    public List<CargoOperation> TGetAll()
     {
-        return _cargoDetailDal.GetAll();
+        return _cargoOperationDal.GetAll();
     }
 }
